@@ -1,0 +1,33 @@
+﻿@model  EntidadMascota
+@{
+    ViewBag.Title = "Actualizar";
+}
+
+<h2>Actualizar</h2>
+
+<form method="post" action="@Url.Action("Actualizar","Home")">
+    <div class="form-group" style="visibility:hidden">
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Disponible</label>
+        @Html.TextBoxFor(x => x.Disponible, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" class="btn-success" value="Actualizar" />
+        <a href="@Url.Action("Index", "About")" class="btn btn-info riht">Regresar</a>
+    </div>
+
+
+</form>
+
+
+
+
+
+

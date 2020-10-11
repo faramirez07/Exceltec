@@ -1,0 +1,31 @@
+﻿@model Masco
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nueva Mascota</h2>
+
+<hr />
+
+<form method="post" action="@Url.Action("Nuevo", "Home")">
+    <div class="form-group">
+        <label>Código</label>
+        @Html.TextBoxFor(x => x.id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Disponible</label>
+        @Html.TextBoxFor(x => x.status, new { @class = "form-control" })
+    </div>
+        <div class="form-group">
+        <input type="submit" class="btn-success" value="Guardar" />
+        <a href="@Url.Action("Index", "Home")" class="btn btn-info riht">Regresar</a>
+    </div>
+
+
+</form>
+

@@ -1,0 +1,49 @@
+﻿@model List<EntidadMascota >
+@{
+    ViewBag.Title = "Pagina para métodos CRUD";
+}
+    <form method="get" action="@Url.Action("About", "Home")">
+        <br />
+        <a href="@Url.Action("Nuevo", "Home")" class="btn btn-primary right">Nuevo</a>
+
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-3"> @Html.TextBox("filtro", null, new { placeholder = "Filtre su búsqueda", @class = "form-control" })</div>
+            <div class="col-md-3"> <button type="submit" class="btn btn-success" style="margin-left:-25px;">Buscar</button></div>
+        </div>
+
+    </form>
+
+    <Table class="table table-striped">
+        <thead>
+            <tr>
+              
+                    <td>Código</td>
+                    <td>Nombre</td>
+                    <td>Estatus</td>
+                    <td>Accciones</td>
+             
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prueba in Model)
+            {
+                <tr>
+                    <td>@prueba.Id</td>
+                    <td>@prueba.Nombre</td>
+                    <td>@prueba.Disponible</td>
+                     <td>
+                        <a href="@Url.Action("Actualizar", "Home", new { id = prueba.Id})" class="btn btn-success">Actualizar</a>
+                        <a href="@Url.Action("Eliminar", "Home", new { id = prueba.Id})" class="btn btn-danger">Eliminar</a>
+                        @*<a href="@Url.Action("Detalle", "Cliente", new { estatus = prueba.Disponible})" class="btn btn-info riht">Ver Detalle</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+
+
+
+
